@@ -8,6 +8,7 @@
     "material-ui": "^0.20.2",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
+    "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.6.3",
     "react-dropzone": "^8.0.1",
     "react-router-dom": "^4.3.1",
@@ -15,7 +16,8 @@
     "react-tap-event-plugin": "^3.0.3",
     "reactstrap": "^6.5.0",
     "storm-react-diagrams": "^5.2.1",
-    "superagent": "^4.0.0"
+    "superagent": "^4.0.0",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
