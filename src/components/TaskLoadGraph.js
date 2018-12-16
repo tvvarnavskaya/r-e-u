@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import {Progress} from 'react-sweet-progress';
+import "react-sweet-progress/lib/style.css";
 
 class TaskLoadGraph extends Component {
+    state = {
+        percent: 30,
+        status: "default" //active, success, error
+    }
     render() {
         return (
             <div>
@@ -14,6 +20,7 @@ class TaskLoadGraph extends Component {
                     <li>Eget erat</li>
                     <li>Id porttitor</li>
                 </ol>
+                <Progress percent = {this.state.percent} status={this.state.status}/>
             </div>
         );
     }

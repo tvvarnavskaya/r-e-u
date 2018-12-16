@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import WorkflowLoadGraph from "./workflow_load_graph/WorkflowLoadGraph";
 import TaskLoadGraph from "./TaskLoadGraph";
+// import Line from 'rc-progress/es/Line';
 // import Contact from "./Contact";
 
 class Main extends Component {
