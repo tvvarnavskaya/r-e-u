@@ -4,24 +4,25 @@ import {
     NavLink,
     HashRouter
 } from "react-router-dom";
-import WorkflowLoadGraph from "./WorkflowLoadGraph";
+import WorkflowLoadGraph from "./workflow_load_graph/WorkflowLoadGraph";
 import TaskLoadGraph from "./TaskLoadGraph";
-import Contact from "./Contact";
+// import Contact from "./Contact";
 
 class Main extends Component {
+
     render() {
         return (
             <HashRouter>
                 <div>
                     <ul className="header">
-                        <li><NavLink exact to="/">Граф загрузки потоков задач</NavLink></li>
-                        <li><NavLink to="/stuff">Граф загрузки задач</NavLink></li>
-                        <li><NavLink to="/contact">В разработке</NavLink></li>
+                        <li><NavLink exact to="/wfGraph">Граф загрузки потоков задач</NavLink></li>
+                        <li><NavLink to="/taskGraph">Граф загрузки задач</NavLink></li>
+                        <li><NavLink to="/other">В разработке</NavLink></li>
                     </ul>
                     <div className="content">
-                        <Route path="/" component={WorkflowLoadGraph}/>
-                        <Route path="/stuff" component={TaskLoadGraph}/>
-                        {/*<Route path="/contact" component={Contact}/>*/}
+                        <Route path="/wfGraph" component={WorkflowLoadGraph}/>
+                        <Route path="/taskGraph" component={TaskLoadGraph}/>
+                        {/*<Route path="/other" component={Contact}/>*/}
                     </div>
                 </div>
             </HashRouter>
