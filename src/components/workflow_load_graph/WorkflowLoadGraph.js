@@ -3,12 +3,11 @@ import wfs from '../../workflowLoadGraph'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
 import {Progress} from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
-// import Line from 'rc-progress';
+import {Button} from '@blueprintjs/core';
 
 class WorkflowLoadGraph extends Component {
     state = {
         workflows: wfs,
-        percent: 30,
         status: "default" //active, success, error
     }
 
@@ -18,14 +17,35 @@ class WorkflowLoadGraph extends Component {
 
     cellButton(cell, row, enumObject, rowIndex) {
         return (
-            <button
-                type="button"
-                onClick={() =>
-                    this.onClickProductSelected(cell, row, rowIndex)}
-            >
-                Click me { rowIndex }
-            </button>
+            <Button
+                icon="refresh" type="button"
+            ><img src="../../img/info.png" alt="" onClick={this.onClickProductSelected(cell, row, rowIndex)} />
+                info
+            </Button>
         )
+    }
+
+    progressWf(cell, row, enumObject, rowIndex) {
+        let wfsLocal = this.state.workflows.map(wf => {
+            if (wf.wfId === row.wfId) {
+                let startDt = new Date(wf.rlsStartDt);
+                let endDt = new Date(wf.rlsEndDt);
+                let diff = (endDt.getTime() - startDt.getTime()) / 1000 / 60;
+                let percent = diff / wf.avg_time * 100;
+                // console.log("wf.wfId="+wf.wfId+", row.wfId="+row.wfId+", time="+diff+", time2="+percent);
+                return (percent > 100) ? 99 : percent
+            }
+            else return 9999999999999
+        });
+        wfsLocal.sort();
+        // console.log("wfs="+wfsLocal);
+        //todo add possibility to show all loaded tasks when click on cell or when cursor in cell
+        return <Progress percent = {row.rlsStus === 'SUCCEEDED' || row.rlsStus === 'FAILED' || row.rlsStus === 'FINISHED' ? 100 : wfsLocal[0] | 0}
+                         status={row.rlsStus === 'RUNNING' ? "active" :
+                             row.rlsStus === 'FAILED' ? "error" :
+                                 //todo make (! - with info) symbol with yellow color instead of success
+                                 row.rlsStus === 'SUCCEEDED' || row.rlsStus === 'FINISHED' ? "success" : "default"}
+        />;
     }
 
     //<Progress percent = {this.state.percent} status={this.state.status}/>
@@ -39,7 +59,7 @@ class WorkflowLoadGraph extends Component {
             <TableHeaderColumn width={'20%'} dataField="wfId" isKey>Идентификатор воркфлоу</TableHeaderColumn>
             <TableHeaderColumn width={'60%'} dataField="wfNmeUnq">Уникальное наименование</TableHeaderColumn>
             <TableHeaderColumn width={'10%'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка</TableHeaderColumn>
-            <TableHeaderColumn width={'10%'}>Прогресс</TableHeaderColumn>
+            <TableHeaderColumn width={'10%'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс</TableHeaderColumn>
         </BootstrapTable>
     }
 }

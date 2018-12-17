@@ -8,7 +8,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 2
     },
     {
         "wfId": 3578,
@@ -19,7 +20,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 20
     },
     {
         "wfId": 3534,
@@ -30,7 +32,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 1
     },
     {
         "wfId": 2000,
@@ -41,7 +44,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 20
     },
     {
         "wfId": 2820,
@@ -52,7 +56,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 15
     },
     {
         "wfId": 5284,
@@ -63,7 +68,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 5
     },
     {
         "wfId": 5214,
@@ -74,7 +80,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 5
     },
     {
         "wfId": 5152,
@@ -85,29 +92,32 @@ export default [
         "rlsRunInf": null,
         "rlsParams": "{}",
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 4
     },
     {
         "wfId": 5102,
         "wfNmeUnq": "wf_KKT_PG_EIAP_2_HIVE_DL_TECH_incr",
-        "rlsStus": null,
-        "rlsStartDt": null,
-        "rlsEndDt": null,
+        "rlsStus": "RUNNING",
+        "rlsStartDt": "2018-12-15T00:30:17.514+0000",
+        "rlsEndDt": "2018-12-15T00:34:07.562+0000",
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 10
     },
     {
         "wfId": 17128,
         "wfNmeUnq": "wf_EXADATA_TAX_OBJ_2_HIVE_DL_RAW_incr",
-        "rlsStus": null,
-        "rlsStartDt": null,
-        "rlsEndDt": null,
+        "rlsStus": "FAILED",
+        "rlsStartDt": "2018-12-15T00:34:00.562+0000",
+        "rlsEndDt": "2018-12-15T00:34:06.562+0000",
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": "error",
+        "avg_time": 7
     },
     {
         "wfId": 17328,
@@ -118,7 +128,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 12
     },
     {
         "wfId": 17380,
@@ -129,7 +140,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 10
     },
     {
         "wfId": 1600,
@@ -140,7 +152,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 15
     },
     {
         "wfId": 20350,
@@ -151,7 +164,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 2
     },
     {
         "wfId": 1802,
@@ -162,7 +176,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 1
     },
     {
         "wfId": 3902,
@@ -173,7 +188,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 10
     },
     {
         "wfId": 4062,
@@ -184,7 +200,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 10
     },
     {
         "wfId": 4142,
@@ -195,7 +212,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 20
     },
     {
         "wfId": 4220,
@@ -206,7 +224,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 2
     },
     {
         "wfId": 4912,
@@ -217,7 +236,8 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 2
     },
     {
         "wfId": 5034,
@@ -228,6 +248,7 @@ export default [
         "rlsRunInf": null,
         "rlsParams": null,
         "rlsJobId": null,
-        "rlsErrMsg": null
+        "rlsErrMsg": null,
+        "avg_time": 2
     }
 ]
