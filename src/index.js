@@ -8,3 +8,9 @@ ReactDOM.render(
     <Main/>,
     document.getElementById("root")
 );
+
+// $(document).ready(function() {
+//     $('#example').DataTable( {
+//         "scrollX": true
+//     } );
+// } );

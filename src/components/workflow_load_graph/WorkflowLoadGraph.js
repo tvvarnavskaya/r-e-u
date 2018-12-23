@@ -3,6 +3,7 @@ import wfs from '../../workflowLoadGraph'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
 import {Progress} from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
+import "../styles/bs_table/bs-table.css";
 import {Button} from '@blueprintjs/core';
 import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 // import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.js'
