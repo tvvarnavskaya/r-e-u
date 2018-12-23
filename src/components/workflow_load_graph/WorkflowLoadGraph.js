@@ -43,7 +43,8 @@ class WorkflowLoadGraph extends Component {
         wfsLocal.sort();
         // console.log("wfs="+wfsLocal);
         //todo add possibility to show all loaded tasks when click on cell or when cursor in cell
-        return <Progress percent = {row.rlsStus === 'SUCCEEDED' || row.rlsStus === 'FAILED' || row.rlsStus === 'FINISHED' ? 100 : wfsLocal[0] | 0}
+        return <Progress color={'#5e4937'}
+                         percent = {row.rlsStus === 'SUCCEEDED' || row.rlsStus === 'FAILED' || row.rlsStus === 'FINISHED' ? 100 : wfsLocal[0] | 0}
                          status={row.rlsStus === 'RUNNING' ? "active" :
                              row.rlsStus === 'FAILED' ? "error" :
                                  //todo make (! - with info) symbol with yellow color instead of success
@@ -53,17 +54,31 @@ class WorkflowLoadGraph extends Component {
 
     //<Progress percent = {this.state.percent} status={this.state.status}/>
     render() {
-        return <div /*style={{overflow: 'auto'}}*/><BootstrapTable data={this.state.workflows} version='4'
-                               tableStyle={ { border: '#0000FF 2.5px solid'} }
-                               // containerStyle={ { border: '#FFBB73 2.5px solid', width: '100%', overflowX: 'scroll'} }
-                               headerStyle={ { border: 'red 1px solid' }}
-                               bodyStyle={ { border: 'green 1px solid',overflow: 'auto' } }
+        return <div /*style={{overflow: 'auto'}}*/>
+                <BootstrapTable
+                    data            = { this.state.workflows } version='4'
+                    tableStyle      = {{ background: '#313335', width: '100%', color: '#ebae59' }}
+                    //containerStyle  = {{ border: #FFBB73 2.5px solid, width: 100%, overflow-x: scroll }}
+                    headerStyle     = {{ }}
+                    bodyStyle       = {{ height: '85vh', overflowY: 'scroll' }}
+
         >
-            <TableHeaderColumn width={'350px'} dataField="wfId" isKey>Идентификатор воркфлоу</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="wfNmeUnq">Уникальное наименование</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="wfNmeUnq">Уникальное наименование</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс</TableHeaderColumn>
+            <TableHeaderColumn thStyle = {{ /*border: '#5e4937 2px solid',*/ color: '#7fb0ff' }}
+                               tdStyle = {{ /*border: '#5e4937 1px solid',*/ color: '#ad4c4c' }}
+                               width={'10vw'} dataField="wfId" isKey>Идентификатор воркфлоу
+            </TableHeaderColumn>
+            <TableHeaderColumn thStyle = {{ /*border: '#5e4937 2px solid',*/ color: '#7fb0ff' }}
+                               tdStyle = {{ /*border: '#5e4937 1px solid',*/ color: '#46a657' }}
+                               width={'40vw'} dataField="wfNmeUnq">Уникальное наименование
+            </TableHeaderColumn>
+            <TableHeaderColumn thStyle = {{ /*border: '#5e4937 2px solid',*/ color: '#7fb0ff' }}
+                               tdStyle = {{ /*border: '#5e4937 1px solid'*/ }}
+                               width={'25vw'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка
+            </TableHeaderColumn>
+            <TableHeaderColumn thStyle = {{ /*border: '#5e4937 2px solid',*/ color: '#7fb0ff' }}
+                               tdStyle = {{ /*border: '#5e4937 1px solid'*/ }}
+                               width={'25vw'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс
+            </TableHeaderColumn>
         </BootstrapTable></div>
     }
 }
