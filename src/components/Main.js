@@ -1,32 +1,47 @@
 import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    HashRouter
-} from "react-router-dom";
 import WorkflowLoadGraph from "./workflow_load_graph/WorkflowLoadGraph";
+import WorkflowLoadGraph2 from "./workflow_load_graph/WorkflowLoadGraph2";
 import TaskLoadGraph from "./TaskLoadGraph";
-// import Line from 'rc-progress/es/Line';
-// import Contact from "./Contact";
+import Menu, {SubMenu, MenuItem} from 'rc-menu';
+
 
 class Main extends Component {
+    state = {
+        openKeys: [],
+        // menu: ['/wfGraph','/taskGraph','/other']
+    };
+
+    onClick(info) {
+        console.log('click ', info);
+    }
+
+    onOpenChange = (openKeys) => {
+        console.log('onOpenChange', openKeys);
+        this.setState({
+            openKeys,
+        });
+    }
 
     render() {
         return (
-            <HashRouter>
-                <div>
-                    <ul className="header">
-                        <li><NavLink exact to="/wfGraph">Граф загрузки потоков задач</NavLink></li>
-                        <li><NavLink to="/taskGraph">Граф загрузки задач</NavLink></li>
-                        <li><NavLink to="/other">В разработке</NavLink></li>
-                    </ul>
-                    <div className="content">
-                        <Route path="/wfGraph" component={WorkflowLoadGraph}/>
-                        <Route path="/taskGraph" component={TaskLoadGraph}/>
-                        {/*<Route path="/other" component={Contact}/>*/}
-                    </div>
-                </div>
-            </HashRouter>
+            <div style={{ width: 400 }}>
+                <Menu
+                    onClick={this.onClick}
+                    mode="inline"
+                    onOpenChange={this.onOpenChange}
+                    openKeys={this.state.openKeys}
+                >
+                    <SubMenu key="1" title="submenu1">
+                        <MenuItem key="1-1">item1-1</MenuItem>
+                        <MenuItem key="1-2">item1-2</MenuItem>
+                    </SubMenu>
+                    <SubMenu key="2" title="submenu2">
+                        <MenuItem key="2-1">item2-1</MenuItem>
+                        <MenuItem key="2-2">item2-2</MenuItem>
+                    </SubMenu>
+                    <MenuItem key="3">item3</MenuItem>
+                </Menu>
+            </div>
         );
     }
 }

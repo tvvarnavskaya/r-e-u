@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import wfs from '../../workflowLoadGraph'
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
 import {Progress} from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 import {Button} from '@blueprintjs/core';
-import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
-// import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.js'
-
+import { Cell, Column, Table } from "@blueprintjs/table";
 class WorkflowLoadGraph extends Component {
     state = {
         workflows: wfs,
-        status: "default" //active, success, error
+        status: "default" //active, success, errorColumn
     }
 
     onClickProductSelected(cell, row, rowIndex){
@@ -52,18 +49,13 @@ class WorkflowLoadGraph extends Component {
 
     //<Progress percent = {this.state.percent} status={this.state.status}/>
     render() {
-        return <div /*style={{overflow: 'auto'}}*/><BootstrapTable data={this.state.workflows} version='4'
-                               tableStyle={ { border: '#0000FF 2.5px solid'} }
-                               // containerStyle={ { border: '#FFBB73 2.5px solid', width: '100%', overflowX: 'scroll'} }
-                               headerStyle={ { border: 'red 1px solid' }}
-                               bodyStyle={ { border: 'green 1px solid',overflow: 'auto' } }
+        return <Table data={this.state.workflows} border={true}
         >
-            <TableHeaderColumn width={'350px'} dataField="wfId" isKey>Идентификатор воркфлоу</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="wfNmeUnq">Уникальное наименование</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="wfNmeUnq">Уникальное наименование</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка</TableHeaderColumn>
-            <TableHeaderColumn width={'350px'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс</TableHeaderColumn>
-        </BootstrapTable></div>
+            <Column width={'20%'} dataField="wfId" isKey>Идентификатор воркфлоу</Column>
+            <Column width={'60%'} dataField="wfNmeUnq">Уникальное наименование</Column>
+            <Column width={'10%'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка</Column>
+            <Column width={'10%'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс</Column>
+        </Table>
     }
 }
 
