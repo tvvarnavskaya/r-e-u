@@ -52,11 +52,18 @@ class WorkflowLoadGraph extends Component {
         />;
     }
 
+     rowClassNameFormat(row, rowIdx) {
+        // row is whole row object
+        // rowIdx is index of row
+        return rowIdx % 2 === 0 ? 'backgroundColor: red' : 'backgroundColor: blue';
+        }
+
     //<Progress percent = {this.state.percent} status={this.state.status}/>
     render() {
         return <div /*style={{overflow: 'auto'}}*/>
                 <BootstrapTable
                     data            = { this.state.workflows } version='4'
+                    trClassName     = { this.rowClassNameFormat }
                     tableStyle      = {{ background: '#313335', width: '100%', color: '#ebae59' }}
                     //containerStyle  = {{ border: #FFBB73 2.5px solid, width: 100%, overflow-x: scroll }}
                     headerStyle     = {{ }}
