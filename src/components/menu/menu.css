@@ -1,9 +1,5 @@
-.sidebar {
-    background: #151718;
-    width: 200px;
-    height: 100%;
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+.menu-button-style {
+    border-radius: 8px;
+    background: darkcyan;
+    border-color: #73fff0;
 }
