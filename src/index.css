@@ -1,4 +1,9 @@
 body {
+    background-image: url("img/abstrakciya_perelivy_gradienty_cvet_47135_1920x1080.jpg");
+    height: 100vh; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
     background-color: #81C8C1;
     padding: 5px;
     margin: 0;
@@ -23,8 +28,10 @@ ul.header li a {
     display: inline-block;
 }
 .content {
-    background-color: #FFF;
-    padding: 10px;
+    background-color: rgba(0,0,0,1);
+    padding: 0px;
+    /*height: 87vh;*/
+    /*width: 100vw;*/
 }
 .content h2 {
     padding: 0;
