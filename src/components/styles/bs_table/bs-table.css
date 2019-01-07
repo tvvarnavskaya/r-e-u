@@ -3,7 +3,8 @@
      width: 100%;
 }
 .containerStyleClass {
-    height: 87vh;
+    /*height: 100vh;*/
+    /*max-height: 80vh;*/
     /*background: rgba(0, 0, 0, 0);*/
     background-image: url("../../../img/dym_abstraktsiya_chastitsy_struktura_118225_1920x1080.jpg");
 /*    height: 100vh; /* You must set a specified height */
@@ -12,9 +13,10 @@
     background-size: cover;
 }
 .headerStyleClass {
-    height: 6% !important;
+    /*max-height: 20% !important;*/
     background: rgba(162, 219, 156, 0.82);
     color: #06330b;
+    font: 11pt verdana;
 }
 
 .bodyStyleClass {
@@ -31,6 +33,11 @@
 .evenRowColor {
     background-color: rgba(255, 240, 254,0.85);
 }
+
+/*Максимальная высота для тела контейера*/
+/*.react-bs-container-body {*/
+    /*max-height: 78vh;*/
+/*}*/
 
 /* Цвет линий в таблице */
 /*

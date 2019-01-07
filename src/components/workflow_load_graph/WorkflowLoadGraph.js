@@ -18,12 +18,12 @@ class WorkflowLoadGraph extends Component {
         console.log('Product #', rowIndex);
     }
 
-    cellButton(cell, row, enumObject, rowIndex) {
+    cellButton(cell, row, enumObject, rowIndex, vText) {
         return (
             <Button
                 icon="refresh" type="button"
             ><img src="../../img/info.png" alt="" onClick={this.onClickProductSelected(cell, row, rowIndex)} />
-                info
+                { vText }
             </Button>
         )
     }
@@ -60,33 +60,36 @@ class WorkflowLoadGraph extends Component {
 
     //<Progress percent = {this.state.percent} status={this.state.status}/>
     render() {
+        const bHeight = window.innerHeight > 800 ? '85' : '79';
+
         return <div /*style={{backgroundColor: '#fff'}}*/>
                 <BootstrapTable
                     data            = { this.state.workflows } version='4'
                     trClassName     = { this.rowClassNameFormat }
-                    tableStyle      = {{ background: 'rgb(0, 0, 0, 0)', height: '87vh', width: '100%', color: '#ebae59' }}
-                    //containerStyle  = {{ border: #FFBB73 2.5px solid, width: 100%, overflow-x: scroll }}
-                    //containerStyle  = {{ height: '87vh', background: 'rgb(0, 0, 0, 0)' }}
+                    tableStyle      = {{ background: 'rgb(0, 0, 0, 0)',/*height:'75vh',*/ /*width: '100%',*/ color: '#ebae59' }}
                     containerClass = "containerStyleClass"
-                    headerStyle     = {{ height: '6%'}}
+                    containerStyle  = {{}}
+                    // bodyContainerClass = "containerStyleClass"
+                    headerStyle     = {{ /*height: '7%'*/}}
                     tableHeaderClass     = "headerStyleClass"
-                    bodyStyle       = {{ height: '94%', overflowY: 'scroll' }}
+
+                    bodyStyle       = {{ maxHeight: bHeight + 'vh', overflowY: 'auto' }}
 
         >
-            <TableHeaderColumn thStyle = {{ border: '#fff 2px solid'/*, color: '#284b7a'*/ }}
-                               tdStyle = {{ border: '#b5a79a 1px solid', color: '#ad4c4c' }}
-                               width={'10vw'} dataField="wfId" isKey>Идентификатор воркфлоу
+            <TableHeaderColumn thStyle = {{ padding: '12px', whiteSpace: 'normal', border: '#fff 2px solid'/*, color: '#284b7a'*/ }}
+                               tdStyle = {{ paddingTop: '6px', paddingBottom: '6px', border: '#b5a79a 1px solid', color: '#ad4c4c' }}
+                               width={'12vw'} dataField="wfId" isKey>Идентификатор воркфлоу
             </TableHeaderColumn>
-            <TableHeaderColumn thStyle = {{ border: '#fff 2px solid'/*, color: '#284b7a' */ }}
-                               tdStyle = {{ border: '#b5a79a 1px solid', color: '#277536' }}
+            <TableHeaderColumn thStyle = {{ padding: '12px', whiteSpace: 'normal', border: '#fff 2px solid'/*, color: '#284b7a' */ }}
+                               tdStyle = {{ paddingTop: '6px', paddingBottom: '6px', border: '#b5a79a 1px solid', color: '#277536' }}
                                width={'40vw'} dataField="wfNmeUnq">Уникальное наименование
             </TableHeaderColumn>
-            <TableHeaderColumn thStyle = {{ border: '#fff 2px solid' /*, color: '#284b7a' */}}
-                               tdStyle = {{ border: '#b5a79a 1px solid' }}
-                               width={'25vw'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка
+            <TableHeaderColumn thStyle = {{ padding: '12px', whiteSpace: 'normal', border: '#fff 2px solid' /*, color: '#284b7a' */}}
+                               tdStyle = {{ paddingTop: '6px', paddingBottom: '6px', border: '#b5a79a 1px solid' }}
+                               width={'20vw'} dataField="button" dataFormat={this.cellButton.bind(this)}>Кнопка
             </TableHeaderColumn>
-            <TableHeaderColumn thStyle = {{ border: '#fff 2px solid' /*, color: '#284b7a' */ }}
-                               tdStyle = {{ border: '#b5a79a 1px solid' }}
+            <TableHeaderColumn thStyle = {{ padding: '12px', whiteSpace: 'normal', border: '#fff 2px solid' /*, color: '#284b7a' */ }}
+                               tdStyle = {{ paddingTop: '6px', paddingBottom: '6px', border: '#b5a79a 1px solid' }}
                                width={'25vw'} dataField="progress" dataFormat={this.progressWf.bind(this)}>Прогресс
             </TableHeaderColumn>
         </BootstrapTable></div>
