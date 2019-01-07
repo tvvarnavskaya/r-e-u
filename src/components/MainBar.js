@@ -2,19 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {ListItemIcon, ListItemText, Divider, MenuList, MenuItem, Drawer, List, ListItem} from '@material-ui/core';
-import { Link, withRouter } from 'react-router-dom';
+import {ListItemText, Divider, MenuList, MenuItem, Drawer} from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Menu from '@material-ui/icons/Menu';
 import IconButton from "@material-ui/core/IconButton/IconButton";
 import WorkflowLoadGraph from "./workflow_load_graph/WorkflowLoadGraph";
-// import routes from "./Routes"
-
-
+import {Route, HashRouter, Link} from "react-router-dom";
+import WorkflowLoadGraph2 from "./workflow_load_graph/WorkflowLoadGraph2";
 
 const styles = {
     list: {
         width: 250,
+    },
+    root: {
+        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        background: 'rgba(77, 77, 77, 0.82)',
+        // borderRadius: 3,
+        // border: 0,
+        // color: 'white',
+        // height: 48,
+        // padding: '0 30px',
+        // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
     drawerHeader: {
         display: 'flex',
@@ -27,8 +35,6 @@ const styles = {
 class Main extends Component {
     state = {
         open: false,
-        // activeRoute: this.activeRoute.bind(this),
-        // menuNav: {routes}
     };
 
     handleDrawerOpen = () => {
@@ -39,66 +45,61 @@ class Main extends Component {
         this.setState({ open: false });
     };
 
-    // activeRoute(routeName) {
-    //     return this.props.location.pathname.indexOf(routeName) > -1 ? true : false;
-    // }
-
     render() {
         const { classes } = this.props;
         const { open } = this.state;
 
         const sideList = (
             <div className={classes.list}>
-                <List>
-                    {['Мониторинг воркфлоу', 'Мониторинг задач', 'В разработке'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-
-            {/*    <MenuList>
-                    {routes.map((prop, key) => {
-                        return (
-                            <Link to={prop.path} style={{ textDecoration: 'none' }} key={key}>
-                                <MenuItem selected={this.activeRoute(prop.path)}>
-                                    <ListItemIcon>
-                                        <prop.icon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={prop.sidebarName} />
-                                </MenuItem>
-                            </Link>
-                        );
-                    })}
-                </MenuList>*/}
+                <MenuList>
+                    <Link to="/wfMonitoring">
+                        <MenuItem selected='wfMonitoring'>
+                            <ListItemText primary={'Мониторинг воркфлоу'} />
+                        </MenuItem>
+                    </Link>
+                    <Link to="/taskMonitoring">
+                    <MenuItem selected='taskMonitoring'>
+                        <ListItemText primary={'В разработке'} />
+                    </MenuItem>
+                    </Link>
+                </MenuList>
             </div>
         );
 
         return (
             <div>
-                <Button onClick={this.handleDrawerOpen}><Menu/></Button>
-                <Drawer open={open} /*style={{backgroundColor: 'mediumslateblue'}}*/>
-                    <div className={classes.drawerHeader} style = {{backgroundColor: 'mediumpurple'}}>
-                        <IconButton onClick={this.handleDrawerClose}>
-                            <ChevronLeftIcon />
-                        </IconButton>
-                    </div>
-                    <Divider />
-                    <div
-                        tabIndex={0}
-                        role="button"
-                        onClick={this.handleDrawerOpen}
-                        onKeyDown={this.handleDrawerOpen}
-                        style = {{backgroundColor: 'mediumpurple'}}
-                    >
-                        {sideList}
-                    </div>
-                </Drawer>
-                <WorkflowLoadGraph/>
-                {/*<div id="pageContent"></div>*/}
-                {/*<main className={this.props.classes.content}>
-                    <Route path="/wfGraph" component={WorkflowLoadGraph}/>
-                </main>*/}
+                <div>
+                    <Button onClick={this.handleDrawerOpen} size={'small'}><Menu/></Button>
+                    <span style={{color: 'white', fontWeight: 'bold'}}>Мониторинг воркфлоу</span>
+                </div>
+                <HashRouter>
+                        <React.Fragment>
+                            <Drawer open={open}>
+                                <div className={classes.drawerHeader} style = {{backgroundColor: 'rgba(77, 77, 77, 0.82)'}}>
+                                    <span style={{color: 'white', fontWeight: 'bold'}}>Меню</span>
+                                    <IconButton onClick={this.handleDrawerClose}>
+                                        <ChevronLeftIcon />
+                                    </IconButton>
+                                </div>
+                                <Divider />
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    onClick={this.handleDrawerClose}
+                                    onKeyDown={this.handleDrawerClose}
+                                    style = {{backgroundColor: 'rgba(77, 77, 77, 0.82)'}}
+                                >
+                                    {sideList}
+                                </div>
+                            </Drawer>
+                            <main>
+                                <Route path="/" exact component={props => <WorkflowLoadGraph />} />
+                                <Route path="/wfMonitoring" component={props => <WorkflowLoadGraph />} />
+                                <Route path="/taskMonitoring" component={props => <WorkflowLoadGraph2 />} />
+                            </main>
+                        </React.Fragment>
+
+                </HashRouter>
             </div>
         );
     }
